@@ -2,7 +2,7 @@ interface Product {
   id?: number;
   name: string;
   amount: number;
-  orderId: string;
+  orderId?: number;
 }
 
 export default Product;
