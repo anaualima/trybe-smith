@@ -14,8 +14,7 @@ export default class OrderModel {
     const result = await this.connection
       .execute('SELECT * FROM Trybesmith.Products');
     const [rows] = result;
-    // console.log(rows);
-    
+   
     return rows as Product[];
   }
 
@@ -23,9 +22,7 @@ export default class OrderModel {
     const products = await this.getProducts();
     const [orders] = await this.connection
       .execute<RowDataPacket[]>('SELECT * FROM Trybesmith.Orders');
-    // console.log(orders);
     const orders1 = JSON.parse(JSON.stringify(orders));
-    // console.log(orders1);
     const result = orders1.map((o:TableOrders) => ({      
       id: o.id,
       userId: o.userId,
